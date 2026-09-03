@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink-950: #08090c;
+  --color-ink-900: #0b0d11;
+  --color-ink-850: #101319;
+  --color-ink-800: #141822;
+  --color-ink-700: #1c212c;
+  --color-ink-600: #2a3140;
+  --color-mute: #7d8798;
+  --color-dim: #586274;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #08090c;
+  color: #e6e9ef;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle grid so the empty areas don't read as broken. */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #232a36;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #323b4b;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.28s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(245, 158, 11, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
+.pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+.blink {
+  animation: blink 1.6s ease-in-out infinite;
+}
